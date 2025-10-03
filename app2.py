@@ -27,8 +27,8 @@ modelTree,model_rf,modelKnn,modelNN,modelSVM, labelencoder,variables,min_max_sca
 #modelTree,modelKnn,modelNN, labelencoder,variables,min_max_scaler = pickle.load(open(filename, 'rb'))
 
 #Cargamos los datos futuros
-data = pd.read_csv("carRisk-future.csv")
-data.head()
+#data = pd.read_csv("carRisk-future.csv")
+#data.head()
 
 #Se crea interfaz gráfica con streamlit para captura de los datos
 #Esto no se ejecuta aqui
@@ -36,12 +36,12 @@ import streamlit as st
 
 st.title('Predicción de Riesgo de autos')
 
-Edad = st.slider('Edad', min_value=14, max_value=52, value=20, step=1)
+Edad = st.slider('age', min_value=14, max_value=52, value=20, step=1)
 Tipo_Carro = st.selectbox('cartype', ["combi", "sport", "family", "minivan"])
 
 #Dataframe
 datos = [[Edad, Tipo_Carro]]
-data = pd.DataFrame(datos, columns=['Edad', 'cartype']) #Dataframe con los mismos nombres de variables
+data = pd.DataFrame(datos, columns=['age', 'cartype']) #Dataframe con los mismos nombres de variables
 
 #Se realiza la preparación debe ser igual al aprendizaje
 data_preparada=data.copy()
